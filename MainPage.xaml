@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="DodgeGame.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DodgeGame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="MasterGrid">
+        <Grid x:Name="mainGrid">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Background2.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Canvas x:Name="cnvs" Grid.Row="0"></Canvas>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="resumePauseTbx" Content="⏯️" Background="Transparent" Grid.Column="3" Grid.Row="5"
+                     FontFamily="Arial Black" Foreground="#FFF6C00A" FontSize="30"
+                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5"
+                     Click="StartPause_Clicked"/>
+
+                <TextBlock x:Name="livesTbl" Text="Lives: 3" Grid.Column="4" Grid.Row="5" Foreground="#FFF6C00A" 
+                       FontSize="30" FontFamily="Arial Black" HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom" Margin="5"/>
+
+                <Button Content="New Game" Grid.Column="0" Grid.Row="5" FontFamily="Arial Black"
+                       Background="Transparent" Foreground="#FFF6C00A" FontSize="30" HorizontalAlignment="Left" 
+                       VerticalAlignment="Bottom" Margin="5" Click="NewGame_Clicked"/>
+
+                <Button x:Name="saveBtn" Content="Save" Grid.Row="5" Grid.Column="1"
+                    Background="Transparent" Foreground="#FFF6C00A" FontSize="30" FontFamily="Arial Black"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                    Margin="5" Click="Save_Clicked"/>
+
+                <Button Content="Exit" Foreground="#FFF6C00A" FontSize="30"
+                    Background="Transparent" FontFamily="Arial Black" Grid.Row="5" Grid.Column="6"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
+                    Click="Exit_Clicked"/>
+
+                <Button Content="Go Back" Foreground="#FFF6C00A" FontSize="30"
+                    Background="Transparent" FontFamily="Arial Black" Grid.Row="5" Grid.Column="5"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                    Margin="5" Click="GoBack_Clicked"/>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="startGrid" >
+            <Grid.Background>
+                <ImageBrush ImageSource = "/Assets/Background.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Start" BorderBrush="Purple" Foreground="Purple" FontSize="30"
+                    FontFamily="Forte" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" 
+                    HorizontalAlignment="Center" Click="Start_Clicked"/>
+            <Button Content="Exit" BorderBrush="Purple" Foreground="Purple" FontSize="30"
+                    FontFamily="Forte" Grid.Row="3" Grid.Column="2"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Exit_Clicked"/>
+            <TextBlock Text="Welcome To The Dodge Game" Grid.Column="1" Grid.ColumnSpan="2" 
+                       FontSize="50" Foreground="#FF8C098C" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontFamily="Forte"/>
+            <TextBlock Text="Amount of Enemies" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" FontFamily="Forte" 
+                       FontSize="40" Foreground="#FFCF356F"/>
+            <TextBox x:Name="numOfEnemyTbx" Grid.Row="1" FontSize="30" 
+                      Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                     PlaceholderText="~Enter a number of enemies 2 - 20~" Text="10">
+            </TextBox>
+
+            <Button x:Name="loadBtn" Content="Load last game" Grid.Row="2" Grid.Column="1"
+                    Background="Transparent" BorderBrush="Purple" Foreground="#FFED0EC8"
+                    FontSize="30" FontFamily="Forte"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                    Margin="5" Tapped="Load_Tapped"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" Text="Difficulty" FontFamily="Forte" 
+                       FontSize="40" Foreground="#FFCF356F"/>
+            <ComboBox x:Name="DifficultyComBox" Grid.Row="2" FontSize="30" Width="150" 
+                      Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <ComboBoxItem Name="Cbi2" Content="Slow" IsSelected="True" FontSize="20" FontWeight="Bold"/> <!-- is selected is the difult opstion. -->
+                <ComboBoxItem Name="Cbi3" Content="Medium" FontSize="20" FontWeight="Bold"/>
+                <ComboBoxItem Name="Cbi4" Content="Fast" FontSize="20" FontWeight="Bold"/>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Page>
